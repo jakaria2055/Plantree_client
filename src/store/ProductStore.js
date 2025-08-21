@@ -19,6 +19,14 @@ const ProductStore = create((set) => ({
       set({ PopularProductList: res.data["data"] });
     }
   },
+
+  CategoryProductList: null,
+  CategoryProductListRequest: async (Category) => {
+    let res = await axios.get(`${Base_Url}/ProductListByCategory/${Category}`);
+    if (res.data["status"] === "success") {
+      set({ CategoryProductList: res.data["data"] });
+    }
+  },
 }));
 
 export default ProductStore;
