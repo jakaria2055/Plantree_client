@@ -15,6 +15,7 @@ import GrassCutting from "../components/popularService/GrassCutting";
 import LoginPage from "../pages/LoginPage";
 import RegistrationPage from "../pages/RegistrationPage";
 import OTPpage from "../pages/OTPpage";
+import ProfilePage from "../pages/ProfilePage";
 
 export const router = createBrowserRouter([
     {
@@ -80,6 +81,10 @@ export const router = createBrowserRouter([
             {
                 path:"/otp",
                 element: <OTPpage />,
+            },
+            {
+                path:"/profile",
+                element: <ProfilePage />,
             },
         ]
     }
