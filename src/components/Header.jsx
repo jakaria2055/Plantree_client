@@ -1,9 +1,19 @@
 import React, { useState, useEffect, useRef } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import UserStore from "../store/UserStore";
 
 const Header = () => {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const hamburgerRef = useRef(null);
+  const { isLogin, UserLogoutRequest } = UserStore();
+
+  const onLogout = async () => {
+    await UserLogoutRequest();
+    sessionStorage.clear();
+    localStorage.clear();
+    navigate("/");
+  };
 
   const toggleMenu = () => {
     setIsOpen((prev) => !prev);
@@ -14,8 +24,9 @@ const Header = () => {
     }
   };
 
+  console.log(isLogin());
+
   useEffect(() => {
-    // Ensure icon reflects state if needed
     const icon = hamburgerRef.current;
     if (icon) {
       if (isOpen) {
@@ -31,9 +42,10 @@ const Header = () => {
   return (
     <header className="bg-green-950 fixed w-full top-0 left-0 z-50">
       <nav className="container flex items-center justify-between h-16 sm:h-20">
-
         {/* <div className="lobster-regular sm:text-2xl">IndorePlants</div> */}
-        <div className="p-4 mt-32 w-64 h-64"><img src="/img/Plantree (2).PNG" alt="" /></div>
+        <div className="p-4 mt-32 w-64 h-64">
+          <img src="/img/Plantree (2).PNG" alt="" />
+        </div>
 
         <div
           className={`absolute top-0 ${
@@ -42,38 +54,85 @@ const Header = () => {
         >
           <ul className="flex flex-col items-center gap-8 lg:flex-row">
             <li>
-              <NavLink to="/" className={`nav-link ${(navData) => navData.isActive? "active" : ""}`} onClick={toggleMenu}>
+              <NavLink
+                to="/"
+                className={`nav-link ${(navData) =>
+                  navData.isActive ? "active" : ""}`}
+                onClick={toggleMenu}
+              >
                 Home
               </NavLink>
             </li>
             <li>
-              <NavLink to="/about" className={`nav-link ${(navData) => navData.isActive? "active" : ""}`} onClick={toggleMenu}>
+              <NavLink
+                to="/about"
+                className={`nav-link ${(navData) =>
+                  navData.isActive ? "active" : ""}`}
+                onClick={toggleMenu}
+              >
                 About
               </NavLink>
             </li>
             <li>
-              <NavLink to="/popular" className={`nav-link ${(navData) => navData.isActive? "active" : ""}`} onClick={toggleMenu}>
+              <NavLink
+                to="/popular"
+                className={`nav-link ${(navData) =>
+                  navData.isActive ? "active" : ""}`}
+                onClick={toggleMenu}
+              >
                 Popular
               </NavLink>
             </li>
             <li>
-              <NavLink to="/review" className={`nav-link ${(navData) => navData.isActive? "active" : ""}`} onClick={toggleMenu}>
+              <NavLink
+                to="/review"
+                className={`nav-link ${(navData) =>
+                  navData.isActive ? "active" : ""}`}
+                onClick={toggleMenu}
+              >
                 Review
               </NavLink>
             </li>
 
-            <li>
-              <NavLink to="/review" className={`nav-link flex items-center ${(navData) => navData.isActive? "active" : ""}`} onClick={toggleMenu}>
-                Profile
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12 11.385q-1.237 0-2.119-.882T9 8.385t.881-2.12T12 5.386t2.119.88t.881 2.12t-.881 2.118t-2.119.882m-7 7.23V16.97q0-.619.36-1.158q.361-.54.97-.838q1.416-.679 2.834-1.018q1.417-.34 2.836-.34t2.837.34t2.832 1.018q.61.298.97.838q.361.539.361 1.158v1.646z"/></svg>
-              </NavLink>
-            </li>
-
-            <li>
-              <NavLink to="/review" className={`nav-link flex items-center ${(navData) => navData.isActive? "active" : ""}`} onClick={toggleMenu}>
-                Logout
-              </NavLink>
-            </li>
+            {isLogin() ? (
+              <>
+                <li>
+                  <NavLink
+                    to="/profile"
+                    className={`nav-link flex items-center ${(navData) =>
+                      navData.isActive ? "active" : ""}`}
+                    onClick={onLogout}
+                  >
+                    <span>Profile</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-user-icon lucide-circle-user"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="10" r="3"/><path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662"/></svg>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/review"
+                    className={`nav-link flex items-center ${(navData) =>
+                      navData.isActive ? "active" : ""}`}
+                    onClick={onLogout}
+                  >
+                    Logout
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-arrow-out-up-right-icon lucide-circle-arrow-out-up-right"><path d="M22 12A10 10 0 1 1 12 2"/><path d="M22 2 12 12"/><path d="M16 2h6v6"/></svg>
+                  </NavLink>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <NavLink
+                    to="/login"
+                    className={`nav-link ${(navData) =>
+                      navData.isActive ? "active" : ""}`}
+                    onClick={toggleMenu}
+                  >
+                    Login
+                  </NavLink>
+                </li>
+              </>
+            )}
           </ul>
 
           <div className="absolute bottom-0 -right-10 opacity-90 lg:hidden">

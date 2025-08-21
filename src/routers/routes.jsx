@@ -6,13 +6,15 @@ import Popular from "../pages/Popular";
 import Review from "../pages/Review";
 import Services from "../components/Services";
 import ShopNow from "../pages/ShopNow";
-import Cart from "../pages/Cart";
 import Flower from "../components/quicklink/Flower";
 import GardeningTools from "../components/quicklink/GardeningTools";
 import Seeds from "../components/quicklink/Seeds";
 import Shipping from "../components/quicklink/Shipping";
 import TreePlanting from "../components/popularService/TreePlanting";
 import GrassCutting from "../components/popularService/GrassCutting";
+import LoginPage from "../pages/LoginPage";
+import RegistrationPage from "../pages/RegistrationPage";
+import OTPpage from "../pages/OTPpage";
 
 export const router = createBrowserRouter([
     {
@@ -43,10 +45,6 @@ export const router = createBrowserRouter([
                 path:"/shopnow",
                 element: <ShopNow/>,
             },
-            {
-                path:"/cart/:id",
-                element: <Cart />,
-            },
              {
                 path:"/flower",
                 element: <Flower />,
@@ -70,6 +68,18 @@ export const router = createBrowserRouter([
              {
                 path:"/grasscutting",
                 element: <GrassCutting />,
+            },
+            {
+                path:"/login",
+                element: <LoginPage />,
+            },
+            {
+                path:"/register",
+                element: <RegistrationPage />,
+            },
+            {
+                path:"/otp",
+                element: <OTPpage />,
             },
         ]
     }
