@@ -16,6 +16,7 @@ import LoginPage from "../pages/LoginPage";
 import RegistrationPage from "../pages/RegistrationPage";
 import OTPpage from "../pages/OTPpage";
 import ProfilePage from "../pages/ProfilePage";
+import ProductByKeyword from "../components/ProductByKeyword";
 
 export const router = createBrowserRouter([
     {
@@ -86,6 +87,11 @@ export const router = createBrowserRouter([
                 path:"/profile",
                 element: <ProfilePage />,
             },
+            {
+                path:"/ProductListByKeyword/:keyword",
+                element: <ProductByKeyword />,
+            },
+            
         ]
     }
 ])

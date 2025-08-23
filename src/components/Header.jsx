@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import UserStore from "../store/UserStore";
+import SearchComponents from "./SearchComponents";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -45,6 +46,10 @@ const Header = () => {
         {/* <div className="lobster-regular sm:text-2xl">IndorePlants</div> */}
         <div className="p-4 mt-32 w-64 h-64">
           <img src="/img/Plantree (2).PNG" alt="" />
+        </div>
+
+        <div>
+          <SearchComponents />
         </div>
 
         <div

@@ -27,6 +27,22 @@ const ProductStore = create((set) => ({
       set({ CategoryProductList: res.data["data"] });
     }
   },
+  
+  KeywordProductList: null,
+  ListByKeywordRequest: async (Keyword) => {
+    set({KeywordProductList:null});
+    let res = await axios.get(`${Base_Url}/ProductListByKeyword/${Keyword}`);
+    if (res.data["status"] === "success") {
+      set({ KeywordProductList: res.data["data"] });
+    }
+  },
+
+  SearchKeyword:"",
+  SetSearchKeyword: (Keyword) =>{
+    set({SearchKeyword: Keyword});
+  }
+
+
 }));
 
 export default ProductStore;
