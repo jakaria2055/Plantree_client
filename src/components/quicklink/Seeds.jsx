@@ -91,7 +91,7 @@ function Seeds() {
 
                   {/* Action button */}
                   <Link
-                    to={`/cart/${item["_id"]}`}
+                    to={`/Details/${item["_id"]}`}
                     className="w-full bg-yellow-600 hover:bg-green-950 text-white py-2 px-4 rounded-md transition-colors"
                   >
                     Add to Cart

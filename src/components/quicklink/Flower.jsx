@@ -70,7 +70,7 @@ function Flower() {
                   </div>
                   <div className="card-actions justify-end">
                     <Link
-                      to={`/cart/${item["_id"]}`}
+                      to={`/Details/${item["_id"]}`}
                       className="bg-yellow-500 hover:bg-yellow-600 px-2 py-1 rounded-sm text-xl"
                     >
                       <i className="ri-shopping-cart-fill"></i>

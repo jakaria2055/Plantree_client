@@ -23,7 +23,7 @@ function PlantsCard({ item }) {
       <div className="flex items-center justify-between">
         <p className="text-xl">${item.price}</p>
         <Link
-          to={`/product/${item._id}`}
+          to={`/Details/${item["_id"]}`}
           className="bg-yellow-500 hover:bg-yellow-600 hover:scale-105 transform duration-300 px-2 py-1 rounded-sm text-xl"
         >
           <i className="ri-shopping-cart-fill"></i>

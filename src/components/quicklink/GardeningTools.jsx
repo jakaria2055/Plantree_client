@@ -80,7 +80,7 @@ function GardeningTools() {
                       </div>
                     </div>
                     <Link
-                      to={`/cart/${item["_id"]}`}
+                      to={`/Details/${item["_id"]}`}
                       className="w-fit p-4 bg-yellow-500 hover:bg-yellow-600 text-green-950 font-medium py-3 rounded-lg transition-colors"
                     >
                       Add Cart
