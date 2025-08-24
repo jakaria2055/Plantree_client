@@ -18,6 +18,7 @@ import OTPpage from "../pages/OTPpage";
 import ProfilePage from "../pages/ProfilePage";
 import ProductByKeyword from "../components/ProductByKeyword";
 import ProductDetails from "../components/Product/ProductDetails";
+import CartList from "../components/Cart/CartList";
 
 export const router = createBrowserRouter([
     {
@@ -96,7 +97,10 @@ export const router = createBrowserRouter([
                 path:"/Details/:id",
                 element: <ProductDetails />,
             },
-            /Details/
+             {
+                path:"/cartlist",
+                element: <CartList />,
+            },
             
         ]
     }

@@ -1,26 +1,23 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import ProductStore from "../../store/ProductStore";
+import CartSubmitButton from "../Cart/CartSubmitButton";
+import toast from "react-hot-toast";
+import CartStore from "../../store/CartStore";
 
 function ProductDetails() {
+  const navigate = useNavigate();
   const { id } = useParams();
   const { Details, DetailsRequest } = ProductStore();
-  const [quantity, setQuantity] = useState(1);
+  const { CartSaveRequest, CartListRequest } = CartStore();
+  const [quantity, SetQuantity] = useState(1);
 
   const incrementQuantity = () => {
-    setQuantity((prevQuantity) => prevQuantity + 1);
+    SetQuantity((quantity) => quantity + 1);
   };
-  
   const decrementQuantity = () => {
     if (quantity > 1) {
-      setQuantity((prevQuantity) => prevQuantity - 1);
-    }
-  };
-
-  const handleQuantityChange = (e) => {
-    const value = parseInt(e.target.value);
-    if (!isNaN(value) && value >= 1) {
-      setQuantity(value);
+      SetQuantity((quantity) => quantity - 1);
     }
   };
 
@@ -29,6 +26,15 @@ function ProductDetails() {
       await DetailsRequest(id);
     })();
   }, []);
+
+  const AddCart = async (productID) => {
+    let res = await CartSaveRequest(productID, quantity);
+    if (res) {
+      toast.success("Item Added into card");
+      await CartListRequest();
+      navigate("/cartlist");
+    }
+  };
 
   if (!Details) {
     return (
@@ -112,17 +118,15 @@ function ProductDetails() {
                     <button
                       type="button"
                       onClick={decrementQuantity}
-                      disabled={quantity <= 1}
-                      className="w-10 h-10 bg-green-800 hover:bg-green-700 text-white flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed transition duration-200"
+                      className="w-10 h-10 bg-green-800 hover:bg-green-700 text-white flex items-center justify-center transition duration-200"
                     >
                       -
                     </button>
                     <input
                       type="number"
-                      min="1"
                       value={quantity}
-                      onChange={handleQuantityChange}
                       className="w-12 h-10 px-2 bg-green-800 text-white text-center border-x border-green-700"
+                      readOnly
                     />
                     <button
                       type="button"
@@ -134,12 +138,13 @@ function ProductDetails() {
                   </div>
                 </div>
 
-                <button
-                  onClick={() => console.log(`Add ${quantity} to cart`)}
+                <CartSubmitButton
+                  onClick={async () => {
+                    await AddCart(Details["_id"]);
+                  }}
                   className="w-full bg-green-600 hover:bg-green-500 text-white py-3 rounded-lg font-medium transition duration-200"
-                >
-                  Add to Cart
-                </button>
+                  text="Add to Cart"
+                ></CartSubmitButton>
               </div>
             </div>
           </div>

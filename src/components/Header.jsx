@@ -103,7 +103,7 @@ const Header = () => {
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  class="lucide lucide-book-open-check-icon lucide-book-open-check"
+                  className="lucide lucide-book-open-check-icon lucide-book-open-check"
                 >
                   <path d="M12 21V7" />
                   <path d="m16 12 2 2 4-4" />
@@ -130,7 +130,7 @@ const Header = () => {
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  class="lucide lucide-hand-heart-icon lucide-hand-heart"
+                  className="lucide lucide-hand-heart-icon lucide-hand-heart"
                 >
                   <path d="M11 14h2a2 2 0 0 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 16" />
                   <path d="m14.45 13.39 5.05-4.694C20.196 8 21 6.85 21 5.75a2.75 2.75 0 0 0-4.797-1.837.276.276 0 0 1-.406 0A2.75 2.75 0 0 0 11 5.75c0 1.2.802 2.248 1.5 2.946L16 11.95" />
@@ -158,7 +158,7 @@ const Header = () => {
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  class="lucide lucide-square-pen-icon lucide-square-pen"
+                  className="lucide lucide-square-pen-icon lucide-square-pen"
                 >
                   <path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
                   <path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z" />
@@ -168,6 +168,34 @@ const Header = () => {
 
             {isLogin() ? (
               <>
+                {/* CART */}
+                <li>
+                  <NavLink
+                    title="Cart List"
+                    to="/cartlist"
+                    className={({ isActive }) =>
+                      `nav-link ${isActive ? "active" : ""}`
+                    }
+                    onClick={toggleMenu}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      className="lucide lucide-shopping-cart-icon lucide-shopping-cart"
+                    >
+                      <circle cx="8" cy="21" r="1" />
+                      <circle cx="19" cy="21" r="1" />
+                      <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+                    </svg>
+                  </NavLink>
+                </li>
                 <li>
                   <NavLink
                     title="Profile"
@@ -187,7 +215,7 @@ const Header = () => {
                       stroke-width="2"
                       stroke-linecap="round"
                       stroke-linejoin="round"
-                      class="lucide lucide-circle-user-icon lucide-circle-user"
+                      className="lucide lucide-circle-user-icon lucide-circle-user"
                     >
                       <circle cx="12" cy="12" r="10" />
                       <circle cx="12" cy="10" r="3" />
@@ -214,7 +242,7 @@ const Header = () => {
                       stroke-width="2"
                       stroke-linecap="round"
                       stroke-linejoin="round"
-                      class="lucide lucide-circle-arrow-out-up-right-icon lucide-circle-arrow-out-up-right"
+                      className="lucide lucide-circle-arrow-out-up-right-icon lucide-circle-arrow-out-up-right"
                     >
                       <path d="M22 12A10 10 0 1 1 12 2" />
                       <path d="M22 2 12 12" />
@@ -244,7 +272,7 @@ const Header = () => {
                       stroke-width="2"
                       stroke-linecap="round"
                       stroke-linejoin="round"
-                      class="lucide lucide-key-round-icon lucide-key-round"
+                      className="lucide lucide-key-round-icon lucide-key-round"
                     >
                       <path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z" />
                       <circle cx="16.5" cy="7.5" r=".5" fill="currentColor" />
