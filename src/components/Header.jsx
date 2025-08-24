@@ -25,7 +25,7 @@ const Header = () => {
     }
   };
 
-  console.log(isLogin());
+  // console.log(isLogin());
 
   useEffect(() => {
     const icon = hamburgerRef.current;

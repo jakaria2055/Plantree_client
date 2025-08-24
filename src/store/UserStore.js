@@ -1,11 +1,11 @@
 import { create } from "zustand";
 import Cookies from "js-cookie";
 import axios from "axios";
-import { setEmail } from "../utility/utility";
+import { setEmail, unauthorized } from "../utility/utility";
 const Base_URL = "http://localhost:8080/api/v1";
 
 const UserStore = create((set) => ({
-  // isLogin: () => {
+  // ISLogin: () => {
   //   return !!Cookies.get("accesstoken");
   // },
 
@@ -80,7 +80,6 @@ const UserStore = create((set) => ({
         // ⬇️ Save tokens here
         localStorage.setItem("accesstoken", res.data.accesstoken);
         localStorage.setItem("refreshtoken", res.data.refreshtoken);
-
         return true;
       }
       return false;
@@ -106,6 +105,67 @@ const UserStore = create((set) => ({
     } catch (e) {
       set({ isFormSubmit: false });
       return false;
+    }
+  },
+
+  ProfileForm: {
+    cus_add: "",
+    cus_city: "",
+    cus_country: "",
+    cus_fax: "",
+    cus_name: "",
+    cus_phone: "",
+    cus_postcode: "",
+    cus_state: "",
+    ship_add: "",
+    ship_city: "",
+    ship_country: "",
+    ship_name: "",
+    ship_phone: "",
+    ship_postcode: "",
+    ship_state: "",
+  },
+  ProfileFormChange: (name, value) => {
+    set((state) => ({
+      ProfileForm: {
+        ...state.ProfileForm,
+        [name]: value,
+      },
+    }));
+  },
+
+  ProfileDetails: null,
+  ProfileDetailsRequest: async () => {
+    try {
+      let res = await axios.get(`${Base_URL}/ReadProfile`,{
+        headers:{
+          accesstoken: localStorage.getItem("accesstoken")
+        }
+      });
+    console.log(Cookies.get("accesstoken"))
+      if (res.data["data"].length > 0) {
+        set({ ProfileDetails: res.data["data"][0] });
+        set({ ProfileForm: res.data["data"][0] });
+      } else {
+        set({ ProfileDetails: [] });
+      }
+    } catch (e) {
+       console.log(Cookies.get("accesstoken"))
+      unauthorized(e.response.status);
+    }
+  },
+
+  ProfileSaveRequest: async (PostBody) => {
+    try {
+      set({ ProfileDetails: null });
+      let res = await axios.post(`${Base_URL}/CreateProfile`, PostBody,{
+        headers:{
+          accesstoken: localStorage.getItem("accesstoken")
+        }
+      });
+      return res.data["status"] === "success";
+    } catch (e) {
+      unauthorized(e.response.status);
     }
   },
 }));
