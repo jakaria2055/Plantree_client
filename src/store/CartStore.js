@@ -76,6 +76,61 @@ const CartStore = create((set) => ({
       unauthorized(e.response.status);
     }
   },
+
+  CreateInvoiceRequest: async () => {
+    try {
+      // Don't set isCartSubmit here to avoid re-render before redirect
+      let res = await axios.get(`${Base_Url}/CreateInvoice`, {
+        headers: {
+          accesstoken: localStorage.getItem("accesstoken"),
+        },
+      });
+
+      // Redirect immediately without touching store state
+      if (
+        res.data["status"] === "success" &&
+        res.data["data"]["GatewayPageURL"]
+      ) {
+        // Fastest: direct redirect
+        window.location.assign(res.data["data"]["GatewayPageURL"]);
+
+        // Or, open in new tab to avoid any UI change
+        // window.open(res.data["data"]["GatewayPageURL"], "_blank");
+      } else {
+        alert("Unable to redirect to payment gateway.");
+      }
+    } catch (e) {
+      unauthorized(e.response?.status);
+    }
+  },
+
+  InvoiceList: null,
+  InvoiceListRequest: async () => {
+    try {
+      let res = await axios.get(`${Base_Url}/InvoiceList`, {
+        headers: {
+          accesstoken: localStorage.getItem("accesstoken"),
+        },
+      });
+      set({ InvoiceList: res.data["data"] });
+    } catch (e) {
+      unauthorized(e.response.status);
+    }
+  },
+
+    InvoiceDetails: null,
+  InvoiceDetailsRequest: async (id) => {
+    try {
+      let res = await axios.get(`${Base_Url}/InvoiceProductList/${id}`, {
+        headers: {
+          accesstoken: localStorage.getItem("accesstoken"),
+        },
+      });
+      set({ InvoiceDetails: res.data["data"] });
+    } catch (e) {
+      unauthorized(e.response.status);
+    }
+  },
 }));
 
 export default CartStore;

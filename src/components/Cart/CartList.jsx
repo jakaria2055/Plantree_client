@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import CartStore from "../../store/CartStore";
 import CartSkeleton from "../../skeleton/CartSkeleton";
+import CartSubmitButton from "./CartSubmitButton";
 
 function CartList() {
   const {
@@ -9,7 +10,8 @@ function CartList() {
     CartTotal,
     CartVatTotal,
     CartPaybleTotal,
-    RemoveCartListRequest
+    RemoveCartListRequest,
+    CreateInvoiceRequest
   } = CartStore();
 
 
@@ -108,10 +110,11 @@ function CartList() {
                 </div>
 
                 <div className="mt-6 flex justify-end">
-                  <button
-                    // onClick={async () => {
-                    //   await CreateInvoiceRequest();
-                    // }}
+                  <CartSubmitButton
+                  text="Check Out"
+                    onClick={async () => {
+                      await CreateInvoiceRequest();
+                    }}
                     className="bg-green-600 hover:bg-green-500 text-white px-6 py-3 rounded-lg font-medium transition-colors flex items-center"
                   >
                     Checkout
@@ -129,7 +132,7 @@ function CartList() {
                         d="M17 8l4 4m0 0l-4 4m4-4H3"
                       />
                     </svg>
-                  </button>
+                  </CartSubmitButton>
                 </div>
               </div>
             </div>
