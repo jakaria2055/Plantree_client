@@ -19,6 +19,7 @@ import ProfilePage from "../pages/ProfilePage";
 import ProductByKeyword from "../components/ProductByKeyword";
 import ProductDetails from "../components/Product/ProductDetails";
 import CartList from "../components/Cart/CartList";
+import Order from "../pages/Order";
 
 export const router = createBrowserRouter([
     {
@@ -100,6 +101,10 @@ export const router = createBrowserRouter([
              {
                 path:"/cartlist",
                 element: <CartList />,
+            },
+             {
+                path:"/order",
+                element: <Order />,
             },
             
         ]
