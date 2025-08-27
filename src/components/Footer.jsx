@@ -61,20 +61,20 @@ function Footer() {
         <div>
           <p className="mb-5 font-bold text-xl">Quick Link</p>
           <div className="flex flex-col gap-1">
-            <Link to="/flower" className="hover:underline hover:-translate-y-1 hover:font-semibold transform duration-300">Flowers</Link>
-            <Link to="/gardening" className="hover:underline hover:-translate-y-1 hover:font-semibold transform duration-300">Gerdening</Link>
-            <Link to="/seeds" className="hover:underline hover:-translate-y-1 hover:font-semibold transform duration-300">Seeds</Link>
-            <Link to="/shipping" className="hover:underline hover:-translate-y-1 hover:font-semibold transform duration-300">Shipping</Link>
+            <Link to="/flower" onClick={scrollUp} className="hover:underline hover:-translate-y-1 hover:font-semibold transform duration-300">Flowers</Link>
+            <Link to="/gardening" onClick={scrollUp} className="hover:underline hover:-translate-y-1 hover:font-semibold transform duration-300">Gerdening</Link>
+            <Link to="/seeds" onClick={scrollUp} className="hover:underline hover:-translate-y-1 hover:font-semibold transform duration-300">Seeds</Link>
+            <Link to="/shipping" onClick={scrollUp} className="hover:underline hover:-translate-y-1 hover:font-semibold transform duration-300">Shipping</Link>
           </div>
         </div>
 
         <div>
           <p className="mb-5 font-bold text-xl">Popular Services</p>
           <div className="flex flex-col gap-1">
-            <Link to="/treeplanting" className="hover:underline hover:-translate-y-1 hover:font-semibold transform duration-300">Tree Planting</Link>
-            <Link to="/grasscutting" className="hover:underline hover:-translate-y-1 hover:font-semibold transform duration-300">Grass Cutting</Link>
-            <Link to="/treeplanting" className="hover:underline hover:-translate-y-1 hover:font-semibold transform duration-300">Weeds Control</Link>
-            <Link to="/treeplanting" className="hover:underline hover:-translate-y-1 hover:font-semibold transform duration-300">Project</Link>
+            <Link to="/treeplanting" onClick={scrollUp} className="hover:underline hover:-translate-y-1 hover:font-semibold transform duration-300">Tree Planting</Link>
+            <Link to="/grasscutting" onClick={scrollUp} className="hover:underline hover:-translate-y-1 hover:font-semibold transform duration-300">Grass Cutting</Link>
+            <Link to="/treeplanting" onClick={scrollUp} className="hover:underline hover:-translate-y-1 hover:font-semibold transform duration-300">Weeds Control</Link>
+            <Link to="/treeplanting" onClick={scrollUp} className="hover:underline hover:-translate-y-1 hover:font-semibold transform duration-300">Project</Link>
           </div>
         </div>
 

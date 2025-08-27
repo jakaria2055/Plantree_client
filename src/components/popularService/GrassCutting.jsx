@@ -3,7 +3,7 @@ import React from "react";
 function GrassCutting() {
   return (
     <section>
-      <div className="flex flex-col items-center gap-3 text-center mb-10 animate-slide-down">
+      <div className="flex flex-col items-center gap-3 text-center mb-10 animate-slide-down animate-slide-down">
         <h2 className="lobster-regular text-yellow-500">
           Professional Grass Cutting Service
         </h2>
