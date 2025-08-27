@@ -30,10 +30,10 @@ function ProfileForm() {
     return <ProfileSkeleton />;
   } else {
     return (
-      <div className="container mx-auto px-4 py-8 max-w-6xl">
+      <div className="container mx-auto px-4 py-8 max-w-6xl animate-slide-down">
         <div className="bg-gradient-to-br from-green-900 to-green-800 rounded-2xl shadow-xl overflow-hidden">
           <div className="p-8">
-            <h2 className="text-2xl font-bold text-white mb-2">Profile Information</h2>
+            <h2 className="text-2xl font-bold text-yellow-500 mb-2">Profile Information</h2>
             <p className="text-green-200 mb-6">Update your customer and shipping details</p>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">

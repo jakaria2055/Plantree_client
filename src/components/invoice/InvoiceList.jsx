@@ -42,7 +42,7 @@ function InvoiceList() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-950 to-green-800 p-6">
+    <div className="min-h-screen bg-gradient-to-br from-green-950 to-green-800 p-6 animate-slide-down">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-3xl font-bold text-white mb-8 text-center">
           Invoice List

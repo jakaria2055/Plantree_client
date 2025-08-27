@@ -51,8 +51,8 @@ function Home() {
           </div>
 
           {/* Flower */}
-          <div className="w-full relative lg:w-1/2 hover:w-2xl transform duration-500">
-            <img src="/img/home.png" alt="home" />
+          <div className="w-full h-1/2 relative lg:w-1/2 hover:w-2xl transform duration-500">
+            <img src="/img/Displaytree.png" alt="home" />
 
             <div className="absolute -top-10 right-0 opacity-30 animate-move xl:top-5">
               <i className="ri-leaf-line text-6xl text-yellow-500"></i>

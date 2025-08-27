@@ -31,7 +31,7 @@ function CartList() {
     return <CartSkeleton />;
   } else {
     return (
-      <section className="min-h-screen bg-gradient-to-b from-green-950 to-green-800 py-8 px-4">
+      <section className="min-h-screen bg-gradient-to-b from-green-950 to-green-800 py-8 px-4 animate-slide-down">
         <div className="container mx-auto px-4 py-8">
           <div className="bg-gradient-to-br from-green-900 to-green-800 rounded-2xl shadow-xl overflow-hidden">
             <div className="p-6">
