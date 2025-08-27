@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import CartStore from "../../store/CartStore";
+import { Link } from "react-router-dom";
 
 function InvoiceList() {
   const { InvoiceList, InvoiceListRequest } = CartStore();
@@ -123,9 +124,9 @@ function InvoiceList() {
                   </div>
 
                   <div className="mt-6 pt-4 border-t border-gray-200 flex justify-end">
-                    <button className="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg transition-colors duration-200">
+                    <Link to={`/invoices/${invoice["_id"]}`} className="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg transition-colors duration-200">
                       View Details
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>

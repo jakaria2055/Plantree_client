@@ -118,7 +118,7 @@ const CartStore = create((set) => ({
     }
   },
 
-    InvoiceDetails: null,
+  InvoiceDetails: null,
   InvoiceDetailsRequest: async (id) => {
     try {
       let res = await axios.get(`${Base_Url}/InvoiceProductList/${id}`, {

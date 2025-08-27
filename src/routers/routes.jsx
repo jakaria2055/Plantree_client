@@ -20,93 +20,97 @@ import ProductByKeyword from "../components/ProductByKeyword";
 import ProductDetails from "../components/Product/ProductDetails";
 import CartList from "../components/Cart/CartList";
 import Order from "../pages/Order";
+import InvoicePage from "../pages/InvoicePage";
 
 export const router = createBrowserRouter([
-    {
-        path:"/",
-        element:<MainLayout />,
-        children: [
-            {
-                path:"/",
-                element: <Home />,
-            },
-            {
-                path:"/about",
-                element: <About />,
-            },
-            {
-                path:"/popular",
-                element: <Popular />,
-            },
-            {
-                path:"/review",
-                element: <Review />,
-            },
-            {
-                path:"/services",
-                element: <Services/>,
-            },
-            {
-                path:"/shopnow",
-                element: <ShopNow/>,
-            },
-             {
-                path:"/flower",
-                element: <Flower />,
-            },
-            {
-                path:"/gardening",
-                element: <GardeningTools />,
-            },
-            {
-                path:"/seeds",
-                element: <Seeds />,
-            },
-            {
-                path:"/shipping",
-                element: <Shipping />,
-            },
-            {
-                path:"/treeplanting",
-                element: <TreePlanting />,
-            },
-             {
-                path:"/grasscutting",
-                element: <GrassCutting />,
-            },
-            {
-                path:"/login",
-                element: <LoginPage />,
-            },
-            {
-                path:"/register",
-                element: <RegistrationPage />,
-            },
-            {
-                path:"/otp",
-                element: <OTPpage />,
-            },
-            {
-                path:"/profile",
-                element: <ProfilePage />,
-            },
-            {
-                path:"/ProductListByKeyword/:keyword",
-                element: <ProductByKeyword />,
-            },
-            {
-                path:"/Details/:id",
-                element: <ProductDetails />,
-            },
-             {
-                path:"/cartlist",
-                element: <CartList />,
-            },
-             {
-                path:"/order",
-                element: <Order />,
-            },
-            
-        ]
-    }
-])
+  {
+    path: "/",
+    element: <MainLayout />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/popular",
+        element: <Popular />,
+      },
+      {
+        path: "/review",
+        element: <Review />,
+      },
+      {
+        path: "/services",
+        element: <Services />,
+      },
+      {
+        path: "/shopnow",
+        element: <ShopNow />,
+      },
+      {
+        path: "/flower",
+        element: <Flower />,
+      },
+      {
+        path: "/gardening",
+        element: <GardeningTools />,
+      },
+      {
+        path: "/seeds",
+        element: <Seeds />,
+      },
+      {
+        path: "/shipping",
+        element: <Shipping />,
+      },
+      {
+        path: "/treeplanting",
+        element: <TreePlanting />,
+      },
+      {
+        path: "/grasscutting",
+        element: <GrassCutting />,
+      },
+      {
+        path: "/login",
+        element: <LoginPage />,
+      },
+      {
+        path: "/register",
+        element: <RegistrationPage />,
+      },
+      {
+        path: "/otp",
+        element: <OTPpage />,
+      },
+      {
+        path: "/profile",
+        element: <ProfilePage />,
+      },
+      {
+        path: "/ProductListByKeyword/:keyword",
+        element: <ProductByKeyword />,
+      },
+      {
+        path: "/Details/:id",
+        element: <ProductDetails />,
+      },
+      {
+        path: "/cartlist",
+        element: <CartList />,
+      },
+      {
+        path: "/order",
+        element: <Order />,
+      },
+      {
+        path: "/invoices/:id",
+        element: <InvoicePage />,
+      },
+    ],
+  },
+]);
