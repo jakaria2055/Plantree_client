@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import CreateReview from "./review/CreateReview";
 
 function Footer() {
   const [isUp, setIsUp] = useState(false);
@@ -30,22 +31,7 @@ function Footer() {
     <footer className="bg-yellow-100 text-green-950 pt-20 pb-10 md:pt-28 relative">
       {/* Newsletter Section */}
       <div className="container text-white absolute top-0 right-0 left-0 -translate-y-1/2">
-        <div className="bg-green-900 px-10 pt-5 pb-10 space-y-5 rounded-md">
-          <h3>
-            <span className="text-yellow-500">Subscribe</span> to our newsletter
-          </h3>
-          <div className="flex flex-col md:flex-row gap-1">
-            <input
-              type="email"
-              placeholder="Your Email Address"
-              className="w-full px-5 py-3 text-green-900 rounded-md outline-none bg-white"
-            />
-            <button className="flex items-center justify-center gap-1 bg-green-950 px-5 py-2 rounded-md hover:opacity-80">
-              <span>Submit</span>
-              <i className="ri-mail-send-fill"></i>
-            </button>
-          </div>
-        </div>
+        <CreateReview />
       </div>
 
       {/* Social Icons */}
