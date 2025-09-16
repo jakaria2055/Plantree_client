@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 import axios from "axios";
 import { setEmail, unauthorized } from "../utility/utility";
 
-const Base_URL = "https://plntree-server.vercel.app";
+const Base_URL = "https://plntree-server.vercel.app/api/v1";
 
 
 const UserStore = create((set) => ({

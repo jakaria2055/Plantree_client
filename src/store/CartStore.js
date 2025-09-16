@@ -2,7 +2,7 @@ import axios from "axios";
 import { create } from "zustand";
 import { unauthorized } from "../utility/utility";
 
-const Base_Url = "https://plntree-server.vercel.app";
+const Base_Url = "https://plntree-server.vercel.app/api/v1";
 
 const CartStore = create((set) => ({
   isCartSubmit: false,
