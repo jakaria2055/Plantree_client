@@ -1,7 +1,7 @@
 import axios from "axios";
 import { create } from "zustand";
 
-const Base_Url = "http://localhost:8080/api/v1";
+const Base_Url = "https://plntree-server.vercel.app";
 
 const ProductStore = create((set) => ({
   ProductList: null,

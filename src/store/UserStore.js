@@ -2,7 +2,9 @@ import { create } from "zustand";
 import Cookies from "js-cookie";
 import axios from "axios";
 import { setEmail, unauthorized } from "../utility/utility";
-const Base_URL = "http://localhost:8080/api/v1";
+
+const Base_URL = "https://plntree-server.vercel.app";
+
 
 const UserStore = create((set) => ({
   // ISLogin: () => {
